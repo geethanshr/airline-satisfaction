@@ -4,7 +4,7 @@ import numpy as np
 import plotly.express as px
 
 # Load the dataset
-df = pd.read_csv("Airline_satisfaction.csv")
+df = pd.read_csv("your_dataset.csv")
 
 # Title
 st.title("Airline Customer Satisfaction Analysis")
@@ -18,15 +18,17 @@ st.dataframe(df.head())
 st.header("1. Percentage of Satisfied Passengers")
 satisfaction_counts = df['Satisfaction'].value_counts(normalize=True) * 100
 st.bar_chart(satisfaction_counts)
-st.write("Satisfied Passengers:", satisfaction_counts['Satisfied'], "%")
-st.write("Neutral or Unsatisfied Passengers:", satisfaction_counts['Neutral or unsatisfied'], "%")
+if 'Satisfied' in satisfaction_counts.index:
+    st.write("Satisfied Passengers:", satisfaction_counts['Satisfied'], "%")
+if 'Neutral or unsatisfied' in satisfaction_counts.index:
+    st.write("Neutral or Unsatisfied Passengers:", satisfaction_counts['Neutral or unsatisfied'], "%")
 
 st.subheader("Satisfaction by Customer Type")
-customer_satisfaction = df.groupby('Customer Type')['Satisfaction'].value_counts(normalize=True).unstack() * 100
+customer_satisfaction = df.groupby('Customer Type')['Satisfaction'].value_counts(normalize=True).unstack().fillna(0) * 100
 st.bar_chart(customer_satisfaction)
 
 st.subheader("Satisfaction by Travel Type")
-travel_satisfaction = df.groupby('Type of Travel')['Satisfaction'].value_counts(normalize=True).unstack() * 100
+travel_satisfaction = df.groupby('Type of Travel')['Satisfaction'].value_counts(normalize=True).unstack().fillna(0) * 100
 st.bar_chart(travel_satisfaction)
 
 # Question 2: First-time vs Returning Customers
@@ -57,3 +59,5 @@ st.header("5. Business vs Economy Class Passengers")
 class_counts = df['Class'].value_counts()
 fig_class = px.bar(x=class_counts.index, y=class_counts.values, labels={'x': 'Class', 'y': 'Count'}, title="Class Distribution")
 st.plotly_chart(fig_class)
+
+
