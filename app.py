@@ -57,14 +57,3 @@ st.header("5. Business vs Economy Class Passengers")
 class_counts = df['Class'].value_counts()
 fig_class = px.bar(x=class_counts.index, y=class_counts.values, labels={'x': 'Class', 'y': 'Count'}, title="Class Distribution")
 st.plotly_chart(fig_class)
-
-# Requirements
-st.write("## Requirements")
-st.write("""
-    ```
-    streamlit
-    pandas
-    numpy
-    plotly
-    ```
-""")
