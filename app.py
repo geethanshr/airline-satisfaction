@@ -17,8 +17,7 @@ st.dataframe(df.head(100))
 # Question 1: Percentage of satisfied passengers
 st.header("1. Percentage of Satisfied Passengers")
 satisfaction_counts = df['Satisfaction'].value_counts(normalize=True) * 100
-fig_customer_satisfaction = px.bar(customer_satisfaction, x=customer_satisfaction.index, y=customer_satisfaction.columns, barmode='group', labels={'x': 'Customer Type', 'value': 'Percentage'}, title="Satisfaction by Customer Type")
-fig_customer_satisfaction.update_layout(xaxis_tickangle=0)  # Ensuring horizontal x-axis labels
+
 st.plotly_chart(fig_customer_satisfaction)
 st.bar_chart(satisfaction_counts)
 if 'Satisfied' in satisfaction_counts.index:
