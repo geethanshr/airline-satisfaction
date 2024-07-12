@@ -12,7 +12,7 @@ st.title("Airline Customer Satisfaction Analysis")
 # Dataset preview
 st.header("Dataset Preview")
 st.write("Here's a preview of the dataset used for analysis:")
-st.dataframe(df.head())
+st.dataframe(df.head(100))
 
 # Question 1: Percentage of satisfied passengers
 st.header("1. Percentage of Satisfied Passengers")
