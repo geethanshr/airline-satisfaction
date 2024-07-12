@@ -12,8 +12,8 @@ def load_data():
 data = load_data()
 
 # Preprocess the dataset
-data['DepartureDelay'] = data['Departure Delay in Minutes'] > 0
-data['ArrivalDelay'] = data['Arrival Delay in Minutes'] > 0
+data['Departure Delay'] = data['Departure Delay in Hrs'] > 0
+data['Arrival Delay'] = data['Arrival Delay in Hrs'] > 0
 
 # Helper function to convert Yes/No to 1/0
 def yes_no_to_numeric(value):
