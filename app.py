@@ -6,6 +6,11 @@ import plotly.express as px
 # Load the dataset
 df = pd.read_csv("Airline_satisfaction.csv")
 
+# Dataset preview
+st.header("Dataset Preview")
+st.write("Here's a preview of the dataset used for analysis:")
+st.dataframe(df.head(20))
+
 # Question 1: Percentage of satisfied passengers
 st.header("1. Percentage of Satisfied Passengers")
 satisfaction_counts = df['Satisfaction'].value_counts(normalize=True) * 100
