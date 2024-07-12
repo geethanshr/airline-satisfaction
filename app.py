@@ -25,7 +25,9 @@ if 'Neutral or unsatisfied' in satisfaction_counts.index:
 
 st.subheader("Satisfaction by Customer Type")
 customer_satisfaction = df.groupby('Customer Type')['Satisfaction'].value_counts(normalize=True).unstack().fillna(0) * 100
-customer_satisfaction.update_layout(xaxis_tickangle=0)  # Ensuring horizontal x-axis labels
+fig_customer_satisfaction = px.bar(customer_satisfaction, x=customer_satisfaction.index, y=customer_satisfaction.columns, barmode='group', labels={'x': 'Customer Type', 'value': 'Percentage'}, title="Satisfaction by Customer Type")
+fig_customer_satisfaction.update_layout(xaxis_tickangle=0)  # Ensuring horizontal x-axis labels
+st.plotly_chart(fig_customer_satisfaction)
 
 st.bar_chart(customer_satisfaction)
 
