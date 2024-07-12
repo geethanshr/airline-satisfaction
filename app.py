@@ -4,7 +4,7 @@ import numpy as np
 import plotly.express as px
 
 # Load the dataset
-df = pd.read_csv("your_dataset.csv")
+df = pd.read_csv("Airline_satisfaction.csv")
 
 # Title
 st.title("Airline Customer Satisfaction Analysis")
