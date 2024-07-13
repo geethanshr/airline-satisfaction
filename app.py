@@ -20,8 +20,8 @@ fig_satisfaction.update_layout(xaxis_tickangle=0)  # Ensuring horizontal x-axis 
 st.plotly_chart(fig_satisfaction)
 
 
-col1, col2, col3 = st.columns(3)
-col1.metric("Percentage of Satisfied Passengers:", satisfaction_counts['Satisfied'],"%")
+col1, col2 = st.columns(2)
+col1.metric("Percentage of Satisfied Passengers:", satisfaction_counts['Satisfied'])
 
 if 'Neutral or unsatisfied' in satisfaction_counts.index:
     st.write("Neutral or Unsatisfied Passengers:", satisfaction_counts['Neutral or unsatisfied'], "%")
@@ -56,6 +56,9 @@ first_time_male_age = df[(df['Customer Type'] == 'First-time') & (df['Gender'] =
 first_time_female_age = df[(df['Customer Type'] == 'First-time') & (df['Gender'] == 'Female')]['Age'].mean()
 st.write("Average Age of First-time Male Passengers:", first_time_male_age)
 st.write("Average Age of First-time Female Passengers:", first_time_female_age)
+col1, col2 = st.columns(2)
+col1.metric("Average Age of First-time Male Passengers:", first_time_male_age)
+col2.metric("Average Age of First-time Female Passengers:", first_time_female_age)
 
 # Question 4: Departure Delay but no Arrival Delay
 st.header("4. Passengers with Departure Delay but No Arrival Delay")
