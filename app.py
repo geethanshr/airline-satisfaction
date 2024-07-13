@@ -62,6 +62,7 @@ col2.metric("Average Age of First-time Female Passengers:", first_time_female_ag
 # Question 4: Departure Delay but no Arrival Delay
 st.header("4. Passengers with Departure Delay but No Arrival Delay")
 departure_but_no_arrival_delay = df[(df['Departure Delay'] > 0) & (df['Arrival Delay'] == 0)].shape[0]
+
 col1 = st.columns(1)
 col2.metric("Number of Passengers with Departure Delay but No Arrival Delay:", departure_but_no_arrival_delay)
 
