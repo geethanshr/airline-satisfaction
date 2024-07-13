@@ -54,8 +54,7 @@ st.plotly_chart(fig_bar)
 st.header("3. Average Age of First-time Male and Female Passengers")
 first_time_male_age = df[(df['Customer Type'] == 'First-time') & (df['Gender'] == 'Male')]['Age'].mean()
 first_time_female_age = df[(df['Customer Type'] == 'First-time') & (df['Gender'] == 'Female')]['Age'].mean()
-st.write("Average Age of First-time Male Passengers:", first_time_male_age)
-st.write("Average Age of First-time Female Passengers:", first_time_female_age)
+
 col1, col2 = st.columns(2)
 col1.metric("Average Age of First-time Male Passengers:", first_time_male_age)
 col2.metric("Average Age of First-time Female Passengers:", first_time_female_age)
@@ -63,7 +62,9 @@ col2.metric("Average Age of First-time Female Passengers:", first_time_female_ag
 # Question 4: Departure Delay but no Arrival Delay
 st.header("4. Passengers with Departure Delay but No Arrival Delay")
 departure_but_no_arrival_delay = df[(df['Departure Delay'] > 0) & (df['Arrival Delay'] == 0)].shape[0]
-st.write("Number of Passengers with Departure Delay but No Arrival Delay:", departure_but_no_arrival_delay)
+col1 = st.columns(1)
+col2.metric("Number of Passengers with Departure Delay but No Arrival Delay:", departure_but_no_arrival_delay)
+
 
 # Question 5: Business vs Economy Class Passengers
 st.header("5. Business vs Economy Class Passengers")
