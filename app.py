@@ -19,6 +19,9 @@ fig_satisfaction = px.bar(satisfaction_counts, x=satisfaction_counts.index, y=sa
 fig_satisfaction.update_layout(xaxis_tickangle=0)  # Ensuring horizontal x-axis labels
 st.plotly_chart(fig_satisfaction)
 
+
+col1, col2, col3 = st.columns(3)
+col1.metric("Total number of test subjects", satisfaction_counts['Satisfied'])
 if 'Satisfied' in satisfaction_counts.index:
     st.write("Satisfied Passengers:", satisfaction_counts['Satisfied'], "%")
 if 'Neutral or unsatisfied' in satisfaction_counts.index:
